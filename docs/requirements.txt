@@ -1,0 +1,21 @@
+# Core dependencies. The application starts, marks, reviews, finalises and
+# publishes results with only these installed - no AI component is required.
+PySide6
+bcrypt
+opencv-python
+pymupdf
+pillow
+
+# Test runner.
+pytest
+
+# AI components live in requirements-ai.txt. Install them to
+# enable handwriting extraction, Core AI 1 draft scoring and Core AI 2 region
+# proposals; without them those features report that they are unavailable and
+# every manual workflow continues to work.
+#
+# Natural-language feedback additionally needs Ollama, a native application that
+# CANNOT be pip-installed. Install it with a terminal command and pull the model
+# (or run scripts\setup_ollama.ps1) - see requirements-ai.txt for the commands:
+#   winget install --id Ollama.Ollama -e
+#   ollama pull llama3.2

@@ -1,0 +1,30 @@
+# Optional local AI runtimes. The application runs fully without these.
+#
+# Installing them enables:
+#   paddleocr / paddlepaddle - handwriting and text extraction
+#   torch / transformers     - Core AI 1 Kertas 2 draft scoring
+#   ultralytics              - Core AI 2 answer-region detection
+#
+# These packages are imported lazily. Missing optional components must not
+# prevent login, manual marking, review, finalisation, or result publication.
+
+paddlepaddle
+paddleocr
+torch>=2.1
+transformers>=4.38
+ultralytics>=8.2
+
+# -----------------------------------------------------------------------------
+# Ollama (local LLM for Kertas 2 natural-language feedback) is a NATIVE
+# application, NOT a pip package - it cannot be installed by `pip install`.
+# Install it and download the model with these terminal commands
+# (or just run:  powershell -ExecutionPolicy Bypass -File scripts\setup_ollama.ps1):
+#
+#   winget install --id Ollama.Ollama -e     # install the Ollama runtime
+#   ollama pull llama3.2                      # download the feedback model (~2 GB)
+#
+# If winget is unavailable, download the installer from https://ollama.com/download
+# and then run `ollama pull llama3.2`. MarkAssist starts Ollama automatically at
+# launch. Without Ollama, feedback falls back to built-in offline templates and
+# marking, review and results are unaffected.
+# -----------------------------------------------------------------------------
